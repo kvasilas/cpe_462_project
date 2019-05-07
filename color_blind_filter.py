@@ -1,3 +1,8 @@
+# CPE 462 - Intro to Image Processing and coding
+# Final Project - Colorblind filter and simulation
+#
+#
+
 import PIL.Image as pic
 import matplotlib as mpl
 import numpy as np
@@ -37,19 +42,31 @@ def sim_colorblind(img, type = "d"):
 def trans_color(img, type):
     return np.einsum("ij, ...j", type, img)
 
-def filter(rgb, type = 'd'):
-    pass
+def filter(rgb, type):
+    sim_rgb = sim_colorblind(rgb, type)
+    rotate_mod = np.array([[0,0,0], [0.7, 1, 0], [0.7, 0, 1]])
+
+    rgb = rgb.convert('RGB')
+    rgb = np.asarray(rgb, dtype = float)
+    change = trans_color(rgb-sim_rgb, rotate_mod)
+    clrBlnd = change + rgb
+    return array_to_image(clrBlnd)
 
 
 def main():
-    orig_path = r'C:\Users\USER\Documents\coding\cpe_462_project\pics\orig.jpg'
+    type = 'd'
+
+    orig_path = r'C:\Users\USER\Documents\coding\cpe_462_project\pics\orig5.jpg'
     sim_path = r'C:\Users\USER\Documents\coding\cpe_462_project\pics\Simulated.jpg'
     filt_path= r'C:\Users\USER\Documents\coding\cpe_462_project\pics\Filtered.jpg'
 
     orig_image = pic.open(orig_path)
     #orig_image.show(title = "original")
-    simulated = sim_colorblind(orig_image, type = "d")
+    simulated = sim_colorblind(orig_image, type)
     simulated.save(sim_path, 'JPEG')
+
+    filtered = filter(orig_image, type)
+    filtered.save(filt_path, 'JPEG')
 
 
     os.system("powershell -c " + orig_path)
