@@ -16,7 +16,13 @@ I am a deuteranope which means I have problems with red and green
 - protanopia
 - tritanopia
 
-Project outline
+## Project outline
 - take in an image that I cant see (Im colorblind)
 - adjust image and show what id see
 - adjust image to show me what others see
+
+
+## Packages
+- pillow : pip install pillow
+- matplotlib : pip install matplotlib
+- numpy : pip install numpy
