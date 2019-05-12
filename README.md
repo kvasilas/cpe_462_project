@@ -12,14 +12,20 @@ Colorblindness occurs when cones in a persons eyes overlap too much causing diff
 I am a deuteranope which means I have problems with red and green
 
 ### Types of colorblindness
--deuteranopia  
+- deuteranopia  
 - protanopia
 - tritanopia
 
-## Project outline
-- take in an image that I cant see (Im colorblind)
-- adjust image and show what id see
-- adjust image to show me what others see
+## Project Outline and Procedure
+- Input an Ishihara Color Test image
+- Adjust input image to show what a colorblind person would see
+- Adjust input image to show a colorblind person what normal vision sees.
+
+### Instructions
+- Select input image (orig.jpg, orig1.jpg ... orig5.jpg)
+- Select type of colorblindness p, d, t
+- run the script
+- 3 pictures will be shown: original, simulated colorblindness, filtered for colorblind people
 
 
 ## Packages
